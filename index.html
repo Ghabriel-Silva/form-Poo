@@ -1,44 +1,99 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar conta</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
-    <title>Formulário Orientado a Objetos!</title>
 </head>
-
 <body>
-    <h1>Entre com os Dados</h1>
+    <main id="form_container">
+        <header id="form_header">
+            <h1 id="form_title">Criar conta</h1>
+            <button class="btn">
+                <i class="fa-solid fa-right-to-bracket"></i>
+            </button>
+        </header>
 
-    <ul class="info-regras">
-        <li>• Todos os campos são obrigatórios (não podem estar vazios).</li>
-        <li>• Senha e repetir senha precisam ser iguais.</li>
-        <li>• A senha deve ter entre 5 a 12 caracteres<li>
-        <li>• A senha deve conter ao menos uma letra maiúscula, uma minúscula e um símbolo<li>
-        <li>• Usuário deve ter entre 3 a 12 caracteres<li>
-        <li>• Usuário deve conter apenas letras ou números (não são permitidos símbolos).</li>
-    </ul>
+        <form id="form" >
+            <div id="input_container">
+                <!-- Campos de texto -->
+                <div class="input-box">
+                    <label for="name" class="form-label">Primeiro nome</label>
+                    <div class="input-field">
+                        <input type="text" id="name" name="name" class="form-control user" placeholder="Gabriel">
+                        <i class="fa-regular fa-user"></i>
+                    </div>
+                </div>
 
-    <form action="" class="formulario">
-        <label>Nome</label>
-        <input type="text" class="nome validar">
+                <div class="input-box">
+                    <label for="last_name" class="form-label">Último nome</label>
+                    <div class="input-field">
+                        <input type="text" id="last_name" name="last_name" class="form-control  userlast" placeholder="Ribeiro">
+                        <i class="fa-regular fa-user"></i>
+                    </div>
+                </div>
 
-        <label>Sobrenome</label>
-        <input type="text" class="sobrenome validar">
+                <div class="input-box">
+                    <label for="birthdate" class="form-label">Nascimento</label>
+                    <div class="input-field">
+                        <input type="date" id="birthdate" name="birthdate" class="form-control">
+                    </div>
+                </div>
 
-        <label>Usuario</label>
-        <input type="text" class="usuario validar" autocomplete="off">
+                <div class="input-box">
+                    <label for="email" class="form-label">E-mail</label>
+                    <div class="input-field">
+                        <input type="email" id="email" name="email" class="form-control" placeholder="exemplo@gmail.com">
+                        <i class="fa-regular fa-envelope"></i>
+                    </div>
+                </div>
 
-        <label>Senha</label>
-        <input type="password" class="senha validar" autocomplete="current-password">
+                <!-- Senha e confirmação -->
+                <div class="input-box">
+                    <label for="password" class="form-label">Senha</label>
+                    <div class="input-field">
+                        <input type="password" id="password" name="password" class="form-control" placeholder="*******">
+                        <i class="fa-regular fa-eye-slash password-icon"></i>
+                    </div>
+                </div>
 
-        <label>Repetir Senha</label>
-        <input type="password" class="repetirsenha validar" autocomplete="current-password">
+                <div class="input-box">
+                    <label for="confirm_password" class="form-label">Confirmar senha</label>
+                    <div class="input-field">
+                        <input type="password" id="confirm_password" name="confirm_password" class="form-control" placeholder="*******">
+                        <i class="fa-regular fa-eye-slash password-icon"></i>
+                    </div>
+                </div>
 
-        <button type="submit">Enviar</button>
-    </form>
+                <!-- Gênero -->
+                <div class="radio-container">
+                    <label class="form-label">Gênero</label>
+                    <div id="gender_inputs">
+                        <div class="radio-box">
+                            <input type="radio" id="female" name="gender" value="female" class="form-control">
+                            <label for="female" class="form-label">Feminino</label>
+                        </div>
+                        <div class="radio-box">
+                            <input type="radio" id="male" name="gender" value="male" class="form-control">
+                            <label for="male" class="form-label">Masculino</label>
+                        </div>
+                        <div class="radio-box">
+                            <input type="radio" id="other" name="gender" value="other" class="form-control">
+                            <label for="other" class="form-label">Outro</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn" >
+                <i class="fa-solid fa-check"></i>
+                Criar conta
+            </button>
+        </form>
+    </main>
+
+    <script src="index.js"></script>
 </body>
-<script src="index.js"></script>
-
 </html>
