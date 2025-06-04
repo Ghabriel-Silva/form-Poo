@@ -1,31 +1,44 @@
 <!DOCTYPE html>
-<html lang="Pt-br">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Formulário Orientado a Objetos!</title>
 </head>
+
 <body>
-    <h1>Valida form</h1>
+    <h1>Entre com os Dados</h1>
+
+    <ul class="info-regras">
+        <li>• Todos os campos são obrigatórios (não podem estar vazios).</li>
+        <li>• Senha e repetir senha precisam ser iguais.</li>
+        <li>• A senha deve ter entre 5 a 12 caracteres<li>
+        <li>• A senha deve conter ao menos uma letra maiúscula, uma minúscula e um símbolo<li>
+        <li>• Usuário deve ter entre 3 a 12 caracteres<li>
+        <li>• Usuário deve conter apenas letras ou números (não são permitidos símbolos).</li>
+    </ul>
+
     <form action="" class="formulario">
         <label>Nome</label>
-        <input type="text" class="nome">
+        <input type="text" class="nome validar">
 
         <label>Sobrenome</label>
-        <input type="text" class="sobrenome ">
+        <input type="text" class="sobrenome validar">
 
         <label>Usuario</label>
-        <input type="text" class="usuario " autocomplete="off">
+        <input type="text" class="usuario validar" autocomplete="off">
 
         <label>Senha</label>
-        <input type="password" class="senha" autocomplete="current-password">
+        <input type="password" class="senha validar" autocomplete="current-password">
 
         <label>Repetir Senha</label>
-        <input type="password" class="repetirsenha" autocomplete="current-password">
+        <input type="password" class="repetirsenha validar" autocomplete="current-password">
 
         <button type="submit">Enviar</button>
     </form>
 </body>
 <script src="index.js"></script>
+
 </html>
