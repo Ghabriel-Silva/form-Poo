@@ -15,7 +15,7 @@ body {
     background-color: #f9fafb;
 }
 
-.btn{
+.btn {
     background-color: #2563eb;
     display: flex;
     align-items: center;
@@ -45,7 +45,7 @@ body {
     background-color: #f6f8ff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);    
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
 #form_header {
@@ -191,10 +191,15 @@ input:-webkit-autofill {
     #input_container {
         display: flex;
         flex-direction: column;
-        gap: 38px;
+        gap: 20px;
+    }
+
+    .form-control {
+        height: 46px;
     }
 
     .form-control[type="date"] {
         background-color: #fff;
+        color: #676770;
     }
 }
