@@ -3,14 +3,15 @@ class validaForm {
     constructor() {
         this.formulario = document.getElementById('form'), //No contexto de classes em JavaScript, this representa a instância atual do objeto criado a partir da classe.
             this.event(),
-            this.passwordSee()
-            
+            this.passwordSee(),
+            this.inputFocus()
+
     }
     event() {
         this.formulario.addEventListener('submit', e => { //this se refere à instância da classe (ou seja, o objeto criado). Com funções normais, o this muda de contexto e pode causar erros."
             this.handleToSend(e)
         })
-        
+
 
     }
 
@@ -25,16 +26,62 @@ class validaForm {
         }
     }
 
+
+    inputFocus() {
+        for (let campo of this.formulario.querySelectorAll('.form-control')) {
+            let previusValues = '';
+
+            campo.addEventListener('focus', () => {
+                previusValues = campo.value;
+            });
+
+            campo.addEventListener('blur', () => {
+                if (campo.value !== previusValues){
+                        this.validarCampoIndividual(campo);
+                }
+            });
+        }
+    }
+
+
+    validarCampoIndividual(campo) {
+        const container = campo.closest('.input-box') //Div pai 
+        if (!container) return;
+
+        const previusError = container.querySelector('.error')
+        if (previusError) previusError.remove()
+
+        const label = container.firstElementChild.innerHTML
+
+        if (!campo.value || campo.value.trim() === '') {
+            this.createError(campo, `${label} Obrigatório`)
+        }
+
+        if (campo.classList.contains('user') || campo.classList.contains('userlast') && campo.value.trim() !== '') {
+            if (!this.userIsValid(campo, label)) {
+            }
+        }
+
+        if (campo.classList.contains('date')) {
+            if (!this.dateIsValid(campo, label)) {
+            }
+        }
+        if (campo.classList.contains('email')) {
+            if (!this.emailIsValid(campo, label)) {
+            }
+        }
+
+    }
+
     
+
     formularioIsvalid() {
         let valid = true
 
         for (let errorInput of this.formulario.querySelectorAll('.error')) {
             errorInput.remove()
         }
-
         for (let campo of this.formulario.querySelectorAll('.form-control')) {
-
             const container = campo.closest('.input-box')  //Busca o ancestral mais próximo com a classe .input-box e guarda em container
             if (!container) continue; // Pula para o próximo campo se não tiver .input-box
             const label = container.firstElementChild.innerHTML
@@ -44,7 +91,7 @@ class validaForm {
                 this.createError(campo, `${label} Obrigatório`)
             }
 
-            if (campo.classList.contains('user') || campo.classList.contains('userlast') && campo.value.trim() !== '') {
+            if ((campo.classList.contains('user') || campo.classList.contains('userlast')) && campo.value.trim() !== '') {
                 if (!this.userIsValid(campo, label)) {
                     valid = false;
                 }
@@ -60,17 +107,11 @@ class validaForm {
                     valid = false;
                 }
             }
-            if (campo.classList.contains('password') | campo.classList.contains('confirm_password')) {
-                if (!this.passworIsValid(campo, label))
-                    valid = false;
-            }
-
-
         }
 
         return valid;
     }
-    
+
     radioIsValid() {
         let valid = false
         let containerRadio = null
@@ -117,6 +158,7 @@ class validaForm {
             this.createError(repetPassword, 'Senha diferentes')
             valid = false
         }
+
         if (passwordValue.length < 3 && passwordValue !== '') { // se a senha for menor que 3 
             this.createError(password, 'Senha  dever ser maior que  3')
             if (repetValue !== '') this.createError(repetPassword, 'Senha  dever ser maior que 3')
@@ -168,6 +210,9 @@ class validaForm {
         p.classList.add('error')
         const inputField = campo.parentElement; //Pega o elemento pai do input (div.input-field) onde a mensagem de erro será inserida abaixo
         inputField.insertAdjacentElement('afterend', p)
+    }
+    mesagensErros(){
+        
     }
 
 }
