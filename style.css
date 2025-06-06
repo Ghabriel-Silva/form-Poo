@@ -157,7 +157,7 @@ input:-webkit-autofill {
     max-width: 200px;
 }
 
-/*.input-box.invalid .form-label {
+/* .input-box.invalid .form-label {
     color: #dc2626;
 }
 
@@ -179,8 +179,8 @@ input:-webkit-autofill {
 
 .radio-container.valid .form-label:first-child {
     color: #22c55e;
-}
-*/
+} */
+
 @media screen and (max-width: 500px) {
     #form_container {
         width: 100%;

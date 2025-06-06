@@ -2,24 +2,30 @@
 class validaForm {
     constructor() {
         this.formulario = document.getElementById('form'), //No contexto de classes em JavaScript, this representa a instância atual do objeto criado a partir da classe.
-            this.event()
+            this.event(),
+            this.passwordSee()
+            
     }
     event() {
         this.formulario.addEventListener('submit', e => { //this se refere à instância da classe (ou seja, o objeto criado). Com funções normais, o this muda de contexto e pode causar erros."
             this.handleToSend(e)
         })
+        
+
     }
 
     handleToSend(e) {
         e.preventDefault()
         const formIsValid = this.formularioIsvalid()
         const passwordIsValid = this.passworIsValid()
+        const radio = this.radioIsValid()
 
-        if (formIsValid && passwordIsValid) {
+        if (formIsValid && passwordIsValid && radio) {
             alert('Formulario enviado!')
         }
     }
 
+    
     formularioIsvalid() {
         let valid = true
 
@@ -64,6 +70,38 @@ class validaForm {
 
         return valid;
     }
+    
+    radioIsValid() {
+        let valid = false
+        let containerRadio = null
+        const radius = this.formulario.querySelectorAll('.radio')
+
+        for (let radio of radius) {
+            if (radio.checked) {
+                valid = true
+                break
+            }
+            if (!containerRadio) {
+                containerRadio = radio.closest('.radio-box')
+            }
+        }
+        if (!valid && containerRadio) {
+            this.createError(containerRadio, 'Gênero obrigatorio')
+        }
+        return valid;
+    }
+
+    passwordSee() {
+        const passwordIcon = this.formulario.querySelectorAll('.password-icon')
+        passwordIcon.forEach((icon) => {
+            icon.addEventListener('click', () => {
+                const input = icon.previousElementSibling
+                input.type = input.type === 'password' ? 'text' : 'password'
+                icon.classList.toggle('fa-eye')
+            })
+        })
+
+    }
 
     passworIsValid() {
         let valid = true;
@@ -74,14 +112,14 @@ class validaForm {
         const passwordValue = password.value.trim()
         const repetValue = repetPassword.value.trim()
 
-        if (passwordValue !== repetValue &&  passwordValue !== '' && repetValue !== ''  ) { //se a senha for diferente mais o campo estiver em branco n executa 
+        if (passwordValue !== repetValue && passwordValue !== '' && repetValue !== '') { //se a senha for diferente mais o campo estiver em branco n executa 
             this.createError(password, 'Senha diferentes')
             this.createError(repetPassword, 'Senha diferentes')
             valid = false
         }
-        if(passwordValue.length < 3  && passwordValue !== '' ){ // se a senha for menor que 3 
+        if (passwordValue.length < 3 && passwordValue !== '') { // se a senha for menor que 3 
             this.createError(password, 'Senha  dever ser maior que  3')
-            if(repetValue !== '') this.createError(repetPassword, 'Senha  dever ser maior que 3')
+            if (repetValue !== '') this.createError(repetPassword, 'Senha  dever ser maior que 3')
         }
 
         return valid;
