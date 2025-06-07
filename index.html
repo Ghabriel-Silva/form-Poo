@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Criar conta</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <main id="form_container">
         <header id="form_header">
@@ -16,13 +20,13 @@
             </button>
         </header>
 
-        <form id="form" >
+        <form id="form">
             <div id="input_container">
                 <!-- Campos de texto -->
                 <div class="input-box">
                     <label for="name" class="form-label">Primeiro nome</label>
                     <div class="input-field">
-                        <input type="text" id="name" name="name" class="form-control user" placeholder="Gabriel">
+                        <input type="text" id="name" name="name" class="form-control user" placeholder="ex: John">
                         <i class="fa-regular fa-user"></i>
                     </div>
                 </div>
@@ -30,7 +34,8 @@
                 <div class="input-box">
                     <label for="last_name" class="form-label">Último nome</label>
                     <div class="input-field">
-                        <input type="text" id="last_name" name="last_name" class="form-control  userlast" placeholder="Ribeiro">
+                        <input type="text" id="last_name" name="last_name" class="form-control  userlast"
+                            placeholder="ex: Smith ">
                         <i class="fa-regular fa-user"></i>
                     </div>
                 </div>
@@ -45,7 +50,8 @@
                 <div class="input-box">
                     <label for="email" class="form-label">E-mail</label>
                     <div class="input-field">
-                        <input type="email" id="email" name="email" class="form-control email" placeholder="exemplo@gmail.com">
+                        <input type="email" id="email" name="email" class="form-control email"
+                            placeholder="exemplo@gmail.com">
                         <i class="fa-regular fa-envelope"></i>
                     </div>
                 </div>
@@ -54,7 +60,8 @@
                 <div class="input-box">
                     <label for="password" class="form-label">Senha</label>
                     <div class="input-field">
-                        <input type="password" id="password" name="password" class="form-control password" placeholder="*******">
+                        <input type="password" id="password" name="password" class="form-control password"
+                            placeholder="*******">
                         <i class="fa-regular fa-eye-slash password-icon"></i>
                     </div>
                 </div>
@@ -62,7 +69,8 @@
                 <div class="input-box">
                     <label for="confirm_password" class="form-label">Confirmar senha</label>
                     <div class="input-field">
-                        <input type="password" id="confirm_password" name="confirm_password" class="form-control confirm_password" placeholder="*******">
+                        <input type="password" id="confirm_password" name="confirm_password"
+                            class="form-control confirm_password" placeholder="*******">
                         <i class="fa-regular fa-eye-slash password-icon"></i>
                     </div>
                 </div>
@@ -70,13 +78,13 @@
                 <!-- Gênero -->
                 <div class="radio-container">
                     <label class="form-label">Gênero</label>
-                    <div id="gender_inputs" >
+                    <div id="gender_inputs">
                         <div class="radio-box">
                             <input type="radio" id="female" name="gender" value="female" class="form-control radio">
                             <label for="female" class="form-label">Feminino</label>
                         </div>
                         <div class="radio-box">
-                            <input type="radio"id="male" name="gender" value="male" class="form-control radio">
+                            <input type="radio" id="male" name="gender" value="male" class="form-control radio">
                             <label for="male" class="form-label">Masculino</label>
                         </div>
                         <div class="radio-box">
@@ -87,13 +95,23 @@
                 </div>
             </div>
 
-            <button type="submit" class="btn" >
+            <button type="submit" class="btn btn-aniation">
                 <i class="fa-solid fa-check"></i>
                 Criar conta
             </button>
-        </form>
+            <p class="sucess-conta">Conta criada! Redirecionando...</p>
+            <div class="wrapper">
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="shadow"></div>
+                <div class="shadow"></div>
+                <div class="shadow"></div>
+            </div>
+            </form>
     </main>
 
     <script src="index.js"></script>
 </body>
+
 </html>

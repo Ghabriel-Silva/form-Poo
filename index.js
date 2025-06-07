@@ -22,10 +22,31 @@ class validaForm {
         const radio = this.radioIsValid()
 
         if (formIsValid && passwordIsValid && radio) {
-            alert('Formulario enviado!')
+            this.animationSucess()
         }
     }
 
+    animationSucess() {
+        const load = this.formulario.querySelector('.wrapper')
+        const button = this.formulario.querySelector('.btn-aniation')
+        const sucess = this.formulario.querySelector('.sucess-conta')
+
+        load.style.display = 'block'
+        button.style.display = 'none'
+
+        setTimeout(() => {
+            load.style.display = 'none'
+            sucess.style.display = 'block'
+
+            this.formulario.reset()
+
+            setTimeout(() => {
+                button.style.display = 'block'
+                sucess.style.display = 'none'
+
+            }, 2000)
+        }, 3000)
+    }
 
     inputFocus() {
         for (let campo of this.formulario.querySelectorAll('.form-control')) {
@@ -36,8 +57,8 @@ class validaForm {
             });
 
             campo.addEventListener('blur', () => {
-                if (campo.value !== previusValues){
-                        this.validarCampoIndividual(campo);
+                if (campo.value !== previusValues) {
+                    this.validarCampoIndividual(campo);
                 }
             });
         }
@@ -73,7 +94,7 @@ class validaForm {
 
     }
 
-    
+
 
     formularioIsvalid() {
         let valid = true
@@ -154,14 +175,14 @@ class validaForm {
         const repetValue = repetPassword.value.trim()
 
         if (passwordValue !== repetValue && passwordValue !== '' && repetValue !== '') { //se a senha for diferente mais o campo estiver em branco n executa 
-            this.createError(password, 'Senha diferentes')
-            this.createError(repetPassword, 'Senha diferentes')
+            this.createError(password, 'Senhas diferentes')
             valid = false
-        }
-
-        if (passwordValue.length < 3 && passwordValue !== '') { // se a senha for menor que 3 
-            this.createError(password, 'Senha  dever ser maior que  3')
-            if (repetValue !== '') this.createError(repetPassword, 'Senha  dever ser maior que 3')
+        } else if (passwordValue.length < 3 && passwordValue !== '') {
+            this.createError(password, 'Senhas  dever ser maior que  4')
+            valid = false
+        } else if (!passwordValue.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{4,}$/) && passwordValue !== '') {
+            this.createError(password, 'Adicione maiúscula, minúscula, símbolo')
+            valid = false
         }
 
         return valid;
@@ -210,9 +231,6 @@ class validaForm {
         p.classList.add('error')
         const inputField = campo.parentElement; //Pega o elemento pai do input (div.input-field) onde a mensagem de erro será inserida abaixo
         inputField.insertAdjacentElement('afterend', p)
-    }
-    mesagensErros(){
-        
     }
 
 }
