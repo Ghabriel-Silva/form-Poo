@@ -29,9 +29,9 @@ Praticar manipulação do DOM, lógica de programação, expressões regulares e
 
 > 💻 Simples, moderno e responsivo.
 
-![](./assets/inicial.png.png)  
-![](./assets/loading.pngl.png.png) 
-![](./assets/sucess.png.png.png) 
+![](./assets/inicial.png)  
+![](./assets/loading.png) 
+![](./assets/sucess.png) 
 ## 🛠️ Como executar
 
 Clone o repositório e abra o arquivo `index.html` no navegador.
