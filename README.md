@@ -6,8 +6,8 @@ Projeto desenvolvido para praticar **JavaScript com Programação Orientada a Ob
 
 - ✔️ Validação de campos obrigatórios
 - ✔️ Verificação se o usuário possui entre 3 a 12 caracteres
-- ✔️ Usuário aceita apenas letras e números
-- ✔️ Senha deve ter entre 5 a 12 caracteres
+- ✔️ Nome e Sobrenome aceita apenas letras
+- ✔️ Senha deve ser maior que 4  caracteres
 - ✔️ Senha precisa conter:
   - Pelo menos uma letra maiúscula
   - Pelo menos uma letra minúscula
@@ -29,7 +29,9 @@ Praticar manipulação do DOM, lógica de programação, expressões regulares e
 
 > 💻 Simples, moderno e responsivo.
 
-![Imagem do Projeto](./assets/img-form.png) 
+![](./assets/inicial.png.png)  
+![](./assets/loading.pngl.png.png) 
+![](./assets/sucess.png.png.png) 
 ## 🛠️ Como executar
 
 Clone o repositório e abra o arquivo `index.html` no navegador.
